@@ -1,0 +1,33 @@
+{
+    "settings": [
+        {
+            "type": "string",
+            "id": "name",
+            "label": "Name"
+        },
+        {
+            "type": "item",
+            "id": "power_item",
+            "label": "Power item",
+            "default": "OFF"
+        },
+        {
+            "type": "item",
+            "id": "watchdog_item",
+            "label": "Watchdog"
+        },
+        {
+            "type": "icon",
+            "id": "icon",
+            "label": "Icon"
+        },
+        {
+            "type": "icon",
+            "id": "backdrop"
+        }
+    ],
+    "template": "<widget-icon iconset=\"config.backdrop_iconset\" icon=\"config.backdrop\" backdrop=\"true\" center=\"true\"></widget-icon>\n<p>\n    <h4>{{config.name}}</h4>\n</p>\n<div class=\"row pc-row\">\n    <div class=\"col-xs-3\">\n        <div ng-init='power={ name: \"Power\", \"item\": config.power_item, \"iconset\": \"smarthome-set\", \"icon\": \"power-button\", \"hidelabel\": true, \"hideonoff\": true }'>\n            <widget-switch ng-model=\"power\"></widget-switch>\n        </div>\n    </div>\n    <div class=\"col-xs-7\" align=\"left\">\n        <span ng-style=\"{ 'font-size': \" 12pt \" }\">PC</span>\n    </div>\n</div>\n\n<div class=\"row\">\n    <div class=\"col-xs-3\">\n        <div ng-init='application={ \"name\": \"Application\", \"item\": config.watchdog_item, \"hidelabel\": true, \"hideonoff\": true,  \"iconset\": \"smarthome-set\", \"icon\": \"power\" }'>\n            <widget-switch ng-model=\"application\" ng-click=\"sendCmd(config.watchdog_item, 'OFF')\"></widget-switch>\n        </div>\n    </div>\n    <div class=\"col-xs-7\" align=\"left\">\n        <span ng-style=\"{ 'font-size': \" 12pt \" }\" align=\"left\">Application</span>\n    </div>\n</div>",
+    "name": "PC and Application",
+    "author": "Andreas Rettig",
+    "description": "A widget to control PC and application, monitored by watchdog"
+}
